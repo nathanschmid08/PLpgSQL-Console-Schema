@@ -19,7 +19,7 @@ $$ language plpgsql;
 create or replace function console._write(level text, msg text)
 returns void as $$
 begin
-    perform console.ensure_table(); -- sicherstellen, dass Tabelle existiert
+    perform console.ensure_table(); -- makes sure that the table exists
     insert into console_log(level, message) VALUES (level, msg);
 end;
 $$ language plpgsql;
